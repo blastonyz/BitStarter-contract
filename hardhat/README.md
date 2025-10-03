@@ -1,3 +1,9 @@
+#test de contratos
+.env con al menos 3 cuentas para votar con saldo de dev tokens
+
+correr npx hardhat run scripts/deployVoting.ts 
+npx hardhat run scripts/interact2.ts --network alpha
+
 # Sample Hardhat 3 Beta Project (`mocha` and `ethers`)
 
 This project showcases a Hardhat 3 Beta project using `mocha` for tests and the `ethers` library for Ethereum interactions.
