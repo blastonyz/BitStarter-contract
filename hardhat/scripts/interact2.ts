@@ -13,7 +13,7 @@ async function main() {
 
     const stakeholders = [wallet.address, user1.address, user2.address];
 
-    const deployedAddress = "0xE70481003c0968E3C5D070970Ca2d7AF77f33bA7";
+    const deployedAddress = "0x910d6e8C9d1A2a9DF5406424F87048c59bF916B4";
 
     // Solo ABI, NO bytecode
     const cvt = new ethers.Contract(deployedAddress, VotingJson.abi, wallet);
@@ -42,8 +42,8 @@ async function main() {
     console.log("Contribución realizada");
 
     // Stakeholders votan milestone 0
-    await (await cvt.connect(wallet).voteMilestone(projectId, 0)).wait();
-    await (await cvt.connect(user1).voteMilestone(projectId, 0)).wait();
+    await (await cvt.connect(wallet).voteMilestone(projectId, 0,true)).wait();
+    await (await cvt.connect(user1).voteMilestone(projectId, 0,true)).wait();
     console.log("Votación completada");
 
     // Consultar votos y balance del creador

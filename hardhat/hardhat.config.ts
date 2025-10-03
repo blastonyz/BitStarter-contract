@@ -1,23 +1,11 @@
 import { HardhatUserConfig } from "hardhat/config";
-import "@nomicfoundation/hardhat-verify";
+import hardhatToolboxMochaEthersPlugin from "@nomicfoundation/hardhat-toolbox-mocha-ethers";
 import * as dotenv from "dotenv";
 
 dotenv.config();
 
-
-const config: HardhatUserConfig & {
-  etherscan: {
-    apiKey: Record<string, string>;
-    customChains: {
-      network: string;
-      chainId: number;
-      urls: {
-        apiURL: string;
-        browserURL: string;
-      };
-    }[];
-  };
-} = {
+const config: HardhatUserConfig = {
+  plugins: [hardhatToolboxMochaEthersPlugin],
   solidity: {
     version: "0.8.28",
     settings: {
@@ -46,7 +34,4 @@ const config: HardhatUserConfig & {
       },
     ],
   },
-};
-
-
-export default config;
+}
